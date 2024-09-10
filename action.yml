@@ -1,0 +1,34 @@
+name: Update Version
+
+description: Updates the version in a Python package
+
+inputs:
+  package-version:
+    description: 'The version to set. Default Value is nightly. '
+    required: false
+    default: 'nightly'
+  package-path:
+    description: 'The path to the package containing the version.py file.'
+    required: true
+    default: '.'
+  text-pattern:
+    description: 'The name of the text-pattern to lock for. Default text-pattern is "__version__" '
+    required: false
+    default: '__version__'
+  file-name:
+    description: 'The name of the File to change. Default File name is version.py'
+    required: false
+    default: 'version.py'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Update version in version.py
+      shell: bash
+      run: |
+        if [ "${{ inputs.package-version }}" == 'nightly' ]; then
+          dt=$(date '+%Y%m%d-%H%M%S')
+          sed -i "s/${{ inputs.text-pattern }} = \".*\"/${{ inputs.text-pattern }} = \"nightly-${dt}\"/" "${{ inputs.package-path }}/${{ inputs.file-name }}"
+        else
+          sed -i "s/${{ inputs.text-pattern }} = \".*\"/${{ inputs.text-pattern }} = \"${{ inputs.package-version }}\"/" "${{ inputs.package-path }}/${{ inputs.file-name }}"
+        fi
