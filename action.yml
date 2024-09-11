@@ -4,21 +4,21 @@ description: Updates the version in a Python package
 
 inputs:
   package-version:
-    description: 'The version to set. Default Value is nightly. '
+    description: "The version to set. Default Value is nightly. "
     required: false
-    default: 'nightly'
+    default: "nightly"
   package-path:
-    description: 'The path to the package containing the version.py file.'
+    description: "The path to the package containing the version.py file."
     required: true
-    default: '.'
+    default: "."
   text-pattern:
     description: 'The name of the text-pattern to lock for. Default text-pattern is "__version__" '
     required: false
-    default: '__version__'
+    default: "__version__"
   file-name:
-    description: 'The name of the File to change. Default File name is version.py'
+    description: "The name of the File to change. Default File name is version.py"
     required: false
-    default: 'version.py'
+    default: "version.py"
 
 runs:
   using: "composite"

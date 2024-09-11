@@ -6,12 +6,12 @@ Die **Update Version** Action aktualisiert die Versionsnummer in einem Python-Pa
 
 ## ⚙️ Inputs
 
-| Parameter        | Beschreibung                                                                                                 | Erforderlich | Standardwert    |
-|------------------|-------------------------------------------------------------------------------------------------------------|--------------|-----------------|
-| `package-version`| Die Versionsnummer, die gesetzt werden soll. Standardmäßig wird eine nightly-Version generiert.              | Nein         | `nightly`       |
-| `package-path`   | Der Pfad zum Paket, das die `version.py` Datei enthält.                                                      | Ja           | `.` (aktuelles Verzeichnis) |
-| `text-pattern`   | Das Muster des Textes, das nach der Versionsnummer durchsucht wird (z.B. `__version__`).                     | Nein         | `__version__`   |
-| `file-name`      | Der Name der Datei, in der die Versionsnummer geändert wird.                                                 | Nein         | `version.py`    |
+| Parameter         | Beschreibung                                                                                    | Erforderlich | Standardwert                |
+| ----------------- | ----------------------------------------------------------------------------------------------- | ------------ | --------------------------- |
+| `package-version` | Die Versionsnummer, die gesetzt werden soll. Standardmäßig wird eine nightly-Version generiert. | Nein         | `nightly`                   |
+| `package-path`    | Der Pfad zum Paket, das die `version.py` Datei enthält.                                         | Ja           | `.` (aktuelles Verzeichnis) |
+| `text-pattern`    | Das Muster des Textes, das nach der Versionsnummer durchsucht wird (z.B. `__version__`).        | Nein         | `__version__`               |
+| `file-name`       | Der Name der Datei, in der die Versionsnummer geändert wird.                                    | Nein         | `version.py`                |
 
 ## 🚀 Funktionsweise
 
@@ -36,18 +36,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       - name: Update Python package version
-        uses: ./  # Verweis auf diese Action
+        uses: ./ # Verweis auf diese Action
         with:
-          package-version: '1.0.0'
-          package-path: 'my_package'
-          file-name: 'version.py'
+          package-version: "1.0.0"
+          package-path: "my_package"
+          file-name: "version.py"
 ```
+
 Dieses Beispiel setzt die Version des Python-Pakets in der Datei my_package/version.py auf 1.0.0. Wenn keine Version angegeben wird, wird eine nightly-Version erzeugt.
 
-
 ## Lizenz
-
-
-
