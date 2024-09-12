@@ -1,22 +1,23 @@
+---
 name: Update Version
 
-description: Updates the version in a Python package
+description: Updates a version variable in a python file.
 
 inputs:
-  package-version:
-    description: "The version to set. Default Value is nightly. "
+  version:
+    description: 'Version number to set. Defaults to "nightly".'
     required: false
     default: "nightly"
-  package-path:
-    description: "The path to the package containing the version.py file."
-    required: true
-    default: "."
-  text-pattern:
-    description: 'The name of the text-pattern to lock for. Default text-pattern is "__version__" '
+  variable:
+    description: 'Name of the variable to look for. Defaults to "__version__".'
     required: false
     default: "__version__"
+  file-path:
+    description: "Path to the package containing the version.py file."
+    required: false
+    default: "."
   file-name:
-    description: "The name of the File to change. Default File name is version.py"
+    description: 'Name of the file to change. Defaults to "version.py".'
     required: false
     default: "version.py"
 
@@ -24,11 +25,9 @@ runs:
   using: "composite"
   steps:
     - name: Update version in version.py
-      shell: bash
-      run: |
-        if [ "${{ inputs.package-version }}" == 'nightly' ]; then
-          dt=$(date '+%Y%m%d-%H%M%S')
-          sed -i "s/${{ inputs.text-pattern }} = \".*\"/${{ inputs.text-pattern }} = \"nightly-${dt}\"/" "${{ inputs.package-path }}/${{ inputs.file-name }}"
-        else
-          sed -i "s/${{ inputs.text-pattern }} = \".*\"/${{ inputs.text-pattern }} = \"${{ inputs.package-version }}\"/" "${{ inputs.package-path }}/${{ inputs.file-name }}"
-        fi
+      run: >
+        python scripts/update_variable.py
+        --version ${{ inputs.version }}
+        --variable ${{ inputs.variable }}
+        --file-path ${{ inputs.file-path }}
+        --file-name ${{ inputs.file-name }}
