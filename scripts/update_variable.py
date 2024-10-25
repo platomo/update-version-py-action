@@ -1,10 +1,6 @@
-"""Modul to update version variable"""
-
 import argparse
 from datetime import datetime
 from pathlib import Path
-
-"""Method to update version"""
 
 
 def update_version(version: str, variable: str, file_path: str, file_name: str):
@@ -48,18 +44,12 @@ def update_version(version: str, variable: str, file_path: str, file_name: str):
         )
 
 
-"""Method to get the current Version"""
-
-
 def get_current_version(content, variable_name):
     """Extract the current version from the file content."""
     for line in content.splitlines():
         if line.startswith(f"{variable_name} ="):
             return line.split("=")[1].strip().strip('"')
     return None
-
-
-"""Run Method"""
 
 
 def main():
