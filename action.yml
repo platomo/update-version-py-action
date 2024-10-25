@@ -25,6 +25,7 @@ runs:
   using: "composite"
   steps:
     - name: Update version in version.py
+      shell: bash
       run: >
         python scripts/update_variable.py
         --version ${{ inputs.version }}
