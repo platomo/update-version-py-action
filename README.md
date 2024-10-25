@@ -9,7 +9,7 @@ version is set to `nightly`, the current date and time will be appended to the v
 ## ⚙️ Inputs
 
 | Parameter   | Description                                                      | Required | Default                 |
-|-------------|------------------------------------------------------------------|----------|-------------------------|
+| ----------- | ---------------------------------------------------------------- | -------- | ----------------------- |
 | `version`   | Version number to set. Defaults to generating a nightly version. | No       | `nightly`               |
 | `variable`  | The variable to update (e.g., `__version__`).                    | No       | `__version__`           |
 | `file-path` | Path to the directory containing the `version.py` file.          | No       | `.` (current directory) |
@@ -50,7 +50,7 @@ jobs:
           file-path: "my_package"
 ```
 
-In this example, the __version__ variable in my_package/version.py is updated to 1.0.0.
+In this example, the **version** variable in my_package/version.py is updated to 1.0.0.
 
 ## ⚖️ License
 
