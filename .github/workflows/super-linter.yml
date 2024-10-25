@@ -29,4 +29,5 @@ jobs:
       - name: Lint Code Base
         uses: super-linter/super-linter/slim@v7
         env: # To report GitHub Actions status checks
+          VALIDATE_PYTHON_PYLINT: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,34 @@
+---
+name: Update Version
+
+description: Updates a version variable in a python file.
+
+inputs:
+  version:
+    description: 'Version number to set. Defaults to "nightly".'
+    required: false
+    default: "nightly"
+  variable:
+    description: 'Name of the variable to look for. Defaults to "__version__".'
+    required: false
+    default: "__version__"
+  file-path:
+    description: "Path to the package containing the version.py file."
+    required: false
+    default: "."
+  file-name:
+    description: 'Name of the file to change. Defaults to "version.py".'
+    required: false
+    default: "version.py"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Update version in version.py
+      shell: bash
+      run: >
+        python scripts/update_variable.py
+        --version ${{ inputs.version }}
+        --variable ${{ inputs.variable }}
+        --file-path ${{ inputs.file-path }}
+        --file-name ${{ inputs.file-name }}
