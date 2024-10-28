@@ -27,7 +27,7 @@ runs:
     - name: Update version in version.py
       shell: bash
       run: >
-        python scripts/update_variable.py
+        python ${{ github.action_path }}/scripts/update_variable.py
         --version ${{ inputs.version }}
         --variable ${{ inputs.variable }}
         --file-path ${{ inputs.file-path }}
