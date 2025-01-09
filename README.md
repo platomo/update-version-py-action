@@ -44,13 +44,20 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Update Python package version
-        uses: platomo/update-version-py-action
+        uses: platomo/update-version-py-action@v1
         with:
           version: "1.0.0"
           file-path: "my_package"
 ```
 
 In this example, the **version** variable in my_package/version.py is updated to 1.0.0.
+
+## Create a new release
+
+To create a new release of the action, use the GitHub release function and create a new
+tag according to semantic version requirements (vX.Y.Z).
+The GitHub workflow `major-release-tag.yml` will automatically move the major version
+tag to the new release.
 
 ## ⚖️ License
 
