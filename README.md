@@ -8,12 +8,12 @@ version is set to `nightly`, the current date and time will be appended to the v
 
 ## ⚙️ Inputs
 
-| Parameter   | Description                                                      | Required | Default                 |
-| ----------- | ---------------------------------------------------------------- | -------- | ----------------------- |
-| `version`   | Version number to set. Defaults to generating a nightly version. | No       | `nightly`               |
-| `variable`  | The variable to update (e.g., `__version__`).                    | No       | `__version__`           |
-| `file-path` | Path to the directory containing the `version.py` file.          | No       | `.` (current directory) |
-| `file-name` | Name of the file where the version variable is located.          | No       | `version.py`            |
+| Name        | Description                                                      | Required |        Default         |
+|-------------| ---------------------------------------------------------------- |:--------:|:----------------------:|
+| `version`   | Version number to set. Defaults to generating a nightly version. |    No    |       `nightly`        |
+| `variable`  | The variable to update (e.g., `__version__`).                    |    No    |     `__version__`      |
+| `file-path` | Path to the directory containing the `version.py` file.          |    No    |          `.`           |
+| `file-name` | Name of the file where the version variable is located.          |    No    |      `version.py`      |
 
 ## 🚀 How It Works
 
@@ -52,7 +52,7 @@ jobs:
 
 In this example, the **version** variable in my_package/version.py is updated to 1.0.0.
 
-## Create a new release
+## 🆕 Create a new release
 
 To create a new release of the action, use the GitHub release function and create a new
 tag according to semantic version requirements (vX.Y.Z).
