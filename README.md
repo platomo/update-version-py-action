@@ -8,12 +8,12 @@ version is set to `nightly`, the current date and time will be appended to the v
 
 ## ⚙️ Inputs
 
-| Name        | Description                                                      | Required |        Default         |
-|-------------| ---------------------------------------------------------------- |:--------:|:----------------------:|
-| `version`   | Version number to set. Defaults to generating a nightly version. |    No    |       `nightly`        |
-| `variable`  | The variable to update (e.g., `__version__`).                    |    No    |     `__version__`      |
-| `file-path` | Path to the directory containing the `version.py` file.          |    No    |          `.`           |
-| `file-name` | Name of the file where the version variable is located.          |    No    |      `version.py`      |
+| Name        | Description                                                      | Required |    Default    |
+| ----------- | ---------------------------------------------------------------- | :------: | :-----------: |
+| `version`   | Version number to set. Defaults to generating a nightly version. |    No    |   `nightly`   |
+| `variable`  | The variable to update (e.g., `__version__`).                    |    No    | `__version__` |
+| `file-path` | Path to the directory containing the `version.py` file.          |    No    |      `.`      |
+| `file-name` | Name of the file where the version variable is located.          |    No    | `version.py`  |
 
 ## 🚀 How It Works
 
