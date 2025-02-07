@@ -22,7 +22,7 @@ with the `variable =` pattern (default: `__version__ =`). It replaces the curren
 version number with either a custom version or an automatically generated nightly
 version.
 
-- If `version` is set to `nightly`, a version in the format `0.0+nightly.YYYYMMDD.HHMMSS`
+- If `version` is set to `nightly`, a version in the format `0.0+nightly-YYYYMMDD-HHMMSS`
   will be generated. This format is compliant with local version identifiers in [PEP-440](https://peps.python.org/pep-0440/#local-version-identifiers).
 - If a specific version is provided, it will replace the existing version.
 
