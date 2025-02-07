@@ -13,8 +13,8 @@ def update_version(version: str, variable: str, file_path: str, file_name: str):
     # Determine the replacement based on the package version
     if version == "nightly":
         # Get current date and time
-        dt = datetime.now().strftime("%Y%m%d.%H%M%S")
-        new_version = f"0.0+nightly.{dt}"
+        dt = datetime.now().strftime("%Y%m%d-%H%M%S")
+        new_version = f"0.0+nightly-{dt}"
     else:
         new_version = version
 
